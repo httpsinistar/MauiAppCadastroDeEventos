@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroDeEventos.ResumoEvento"
+             NavigationPage.HasNavigationBar="False"
+             Title="ResumoEvento">
+    <VerticalStackLayout>
+        <Label 
+            Text="Resumo do Evento"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Margin="5"
+            Style="{StaticResource Headline}"/>
+
+        <Frame Margin="5">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
+                      ColumnDefinitions="*, *"
+                      Margin="5">
+                    <Label Text="Nome do evento: "
+                           Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="{Binding NomeEvento}"
+                           Grid.Row="0" Grid.Column="1"/>
+
+                    <Label Text="Começa: "
+                           Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="{Binding DataIni}"
+                           Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Termina: "
+                           Grid.Row="2" Grid.Column="0"/>
+                    <Label Text="{Binding DataTerm}"
+                           Grid.Row="2" Grid.Column="1"/>
+
+                    <Label Text="Local: "
+                           Grid.Row="3" Grid.Column="0"/>
+                    <Label Text="{Binding LocalEvento}"
+                           Grid.Row="3" Grid.Column="1"/>
+
+                    <Label Text="Participarão: "
+                           Grid.Row="4" Grid.Column="0"/>
+                    <Label Text="{Binding QntPartic}"
+                           Grid.Row="4" Grid.Column="1"/>
+
+                    <Label Text="Custo por participante: "
+                           Grid.Row="5" Grid.Column="0"/>
+                    <Label Text="{Binding CustoPartic}"
+                           Grid.Row="5" Grid.Column="1"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame Margin="5">
+            <VerticalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Custo diario:" Margin="5"
+                           Style="{StaticResource SubHeadline}"/>
+                    <Label Text="{Binding ValorDiario, StringFormat='{}{0:c}'}" 
+                           Margin="5"
+                           Style="{StaticResource SubHeadline}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Custo total:" Margin="5" Style="{StaticResource SubHeadline}"/>
+                    <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" Margin="5" Style="{StaticResource SubHeadline}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar"
+                Clicked="Button_Clicked"
+                HorizontalOptions="Center"
+                Margin="5"/>
+    </VerticalStackLayout>
+</ContentPage>
